@@ -8,13 +8,17 @@ package visual;
  *
  * @author USER
  */
-public class Frm_Cliente extends javax.swing.JFrame {
+public class Frm_ChatClient extends javax.swing.JFrame {
 
     /**
-     * Creates new form Frm_Cliente
+     * Creates new form Frm_ChatCliente
      */
-    public Frm_Cliente() {
+    public Frm_ChatClient() {
         initComponents();
+        txt_Chat.setEnabled(false);
+        btn_Logout.setEnabled(false);
+        txt_Mensaje.setEnabled(false);
+        btn_Enviar.setEnabled(false);
     }
 
     /**
@@ -26,8 +30,8 @@ public class Frm_Cliente extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btn_Chat = new javax.swing.JButton();
-        txt_mensaje = new javax.swing.JTextField();
+        btn_Enviar = new javax.swing.JButton();
+        txt_Mensaje = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         txt_Chat = new javax.swing.JTextArea();
         lbl_ChatCliente = new javax.swing.JLabel();
@@ -38,16 +42,18 @@ public class Frm_Cliente extends javax.swing.JFrame {
         lbl_Username = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Chat Cliente");
 
-        btn_Chat.setText("Chat");
-        btn_Chat.setToolTipText("");
-        btn_Chat.setName(""); // NOI18N
-        btn_Chat.addActionListener(new java.awt.event.ActionListener() {
+        btn_Enviar.setText("Enviar");
+        btn_Enviar.setToolTipText("");
+        btn_Enviar.setName(""); // NOI18N
+        btn_Enviar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_ChatActionPerformed(evt);
+                btn_EnviarActionPerformed(evt);
             }
         });
 
+        txt_Chat.setEditable(false);
         txt_Chat.setColumns(20);
         txt_Chat.setRows(5);
         jScrollPane1.setViewportView(txt_Chat);
@@ -55,10 +61,20 @@ public class Frm_Cliente extends javax.swing.JFrame {
         lbl_ChatCliente.setText("Chat Cliente:");
 
         btn_Login.setText("Login");
+        btn_Login.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_LoginActionPerformed(evt);
+            }
+        });
 
         btn_Logout.setText("Logout");
+        btn_Logout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_LogoutActionPerformed(evt);
+            }
+        });
 
-        lbl_NombreCliente.setText("NombreCliente");
+        lbl_NombreCliente.setText("---");
 
         lbl_Username.setText("Username");
 
@@ -81,10 +97,10 @@ public class Frm_Cliente extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(txt_Username, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 248, Short.MAX_VALUE)
-                            .addComponent(txt_mensaje))
+                            .addComponent(txt_Mensaje))
                         .addGap(27, 27, 27)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btn_Chat)
+                    .addComponent(btn_Enviar)
                     .addComponent(btn_Logout)
                     .addComponent(btn_Login))
                 .addGap(29, 29, 29))
@@ -109,8 +125,8 @@ public class Frm_Cliente extends javax.swing.JFrame {
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn_Chat)
-                    .addComponent(txt_mensaje, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btn_Enviar)
+                    .addComponent(txt_Mensaje, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(29, 29, 29))
         );
 
@@ -134,30 +150,94 @@ public class Frm_Cliente extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Frm_Cliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Frm_ChatClient.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Frm_Cliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Frm_ChatClient.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Frm_Cliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Frm_ChatClient.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Frm_Cliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Frm_ChatClient.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Frm_Cliente().setVisible(true);
+                new Frm_ChatClient().setVisible(true);
             }
         });
     }
-        
-    private void btn_ChatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ChatActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btn_ChatActionPerformed
 
+    private void btn_EnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_EnviarActionPerformed
+        // TODO add your handling code here:
+        boolean isMensaje = false;
+        String mensaje = txt_Mensaje.getText().trim();
+        
+        isMensaje = isString(mensaje);
+        
+        if (isMensaje) {
+            // añadir código para enviar mensaje
+            mensaje = "CHAT " + mensaje;
+            
+        }
+        
+        // Despues de enviar el mensaje, se borra el texo.
+        txt_Mensaje.setText("");
+        
+    }//GEN-LAST:event_btn_EnviarActionPerformed
+    
+    private void btn_LoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_LoginActionPerformed
+        // TODO add your handling code here:
+        boolean isUsername = false;
+        String username = txt_Username.getText().trim();
+
+        isUsername = isString(username);
+
+        if (isUsername) {
+            txt_Username.setText("");
+            txt_Username.setEnabled(false);
+            btn_Login.setEnabled(false);
+            lbl_NombreCliente.setText(username);
+            txt_Chat.setEnabled(true);
+            btn_Logout.setEnabled(true);
+            txt_Mensaje.setEnabled(true);
+            btn_Enviar.setEnabled(true);
+            
+            // añadir código para login
+            
+        }
+    }//GEN-LAST:event_btn_LoginActionPerformed
+
+    private void btn_LogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_LogoutActionPerformed
+        // TODO add your handling code here:
+        lbl_NombreCliente.setText("---");
+        txt_Username.setEnabled(true);
+        btn_Login.setEnabled(true);
+        txt_Chat.setEnabled(false);
+        btn_Logout.setEnabled(false);
+        txt_Mensaje.setEnabled(false);
+        btn_Enviar.setEnabled(false);
+        
+        // añadir código para logout
+        
+    }//GEN-LAST:event_btn_LogoutActionPerformed
+
+    //region Methods
+    
+    private boolean isString(String string) {
+        boolean isUsername = false;
+        if (!string.equals("")) {
+            isUsername = true;
+        }
+        return isUsername;
+    }
+    
+    //endregion 
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn_Chat;
+    private javax.swing.JButton btn_Enviar;
     private javax.swing.JButton btn_Login;
     private javax.swing.JButton btn_Logout;
     private javax.swing.JScrollPane jScrollPane1;
@@ -165,7 +245,7 @@ public class Frm_Cliente extends javax.swing.JFrame {
     private javax.swing.JLabel lbl_NombreCliente;
     private javax.swing.JLabel lbl_Username;
     private javax.swing.JTextArea txt_Chat;
+    private javax.swing.JTextField txt_Mensaje;
     private javax.swing.JTextField txt_Username;
-    private javax.swing.JTextField txt_mensaje;
     // End of variables declaration//GEN-END:variables
 }

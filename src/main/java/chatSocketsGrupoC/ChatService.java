@@ -101,7 +101,7 @@ public class ChatService implements Runnable
       }      
       else if (!command.equals("LOGOUT"))
       {
-         return "Administrador del chat room: Comando inv�lido";
+         return "Administrador del chat room: Comando inválido";
       }
         
       chatRoom.broadcast(userName, "LOGOUT", this);

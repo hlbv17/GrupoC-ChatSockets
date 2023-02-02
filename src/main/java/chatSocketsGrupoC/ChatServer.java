@@ -18,7 +18,13 @@ public class ChatServer
       ServerSocket server = new ServerSocket(PORT);
       System.out.println("Esperando que se conecten clientes...");
       
-      // su codigo va aqui!
+      while (true) {
+         Socket s = server.accept();
+         System.out.println("Nuevo cliente conectado: " + s.getInetAddress().getHostAddress());
+         ChatService servicio = new ChatService(s, chatRoom);
+         Thread hilo = new Thread(servicio);
+         hilo.start();
+      }
       
    }
 }

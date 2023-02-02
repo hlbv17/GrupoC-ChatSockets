@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ListIterator;
 import java.io.PrintWriter;
+import java.util.Collections;
 
 /**
    Un chat room el cual consiste de m�ltiples chatters.
@@ -21,8 +22,8 @@ public class ChatRoom
    public ChatRoom(int aCapacity)
    {
       capacity = aCapacity;
-      chatterHash = new HashMap(capacity);
-      activeService = new ArrayList(capacity);
+      chatterHash = Collections.synchronizedMap(new HashMap(capacity));
+      activeService = Collections.synchronizedList(new ArrayList(capacity));
    }
 
    /**
@@ -39,7 +40,7 @@ public class ChatRoom
       @param aName el nombre a de-registrar
       @param service el nombre del servicio que se est� de-registrando
    */
-   public void leave(String aName, ChatService service)
+   public synchronized void leave(String aName, ChatService service)
    {
       chatterHash.remove(aName);
       activeService.remove(activeService.indexOf(service));
@@ -56,7 +57,7 @@ public class ChatRoom
       @param msg el mensaje a enviar
       @param chatService el lugar de donde se escribe el mensaje (el servicio asociado al cliente que envi� el mensaje)
    */ 
-   public void broadcast(String requestor, String msg, ChatService chatService)
+   public synchronized void broadcast(String requestor, String msg, ChatService chatService)
    {
       for (int i = 0; i < activeService.size(); i++)     
       {

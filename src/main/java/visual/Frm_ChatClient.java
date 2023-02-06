@@ -4,11 +4,15 @@
  */
 package visual;
 
+import chatSocketsGrupoC.ClientSocket;
+import chatSocketsGrupoC.MessageSocketClient;
+
+import javax.swing.*;
 /**
- *
  * @author USER
  */
 public class Frm_ChatClient extends javax.swing.JFrame {
+    private ClientSocket clientSocket;
 
     /**
      * Creates new form Frm_ChatCliente
@@ -19,6 +23,7 @@ public class Frm_ChatClient extends javax.swing.JFrame {
         btn_Logout.setEnabled(false);
         txt_Mensaje.setEnabled(false);
         btn_Enviar.setEnabled(false);
+        clientSocket = new ClientSocket();
     }
 
     /**
@@ -81,53 +86,53 @@ public class Frm_ChatClient extends javax.swing.JFrame {
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lbl_ChatCliente)
-                        .addGap(18, 18, 18)
-                        .addComponent(lbl_NombreCliente)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lbl_Username)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txt_Username, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 248, Short.MAX_VALUE)
-                            .addComponent(txt_Mensaje))
-                        .addGap(27, 27, 27)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btn_Enviar)
-                    .addComponent(btn_Logout)
-                    .addComponent(btn_Login))
-                .addGap(29, 29, 29))
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addGap(24, 24, 24)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(layout.createSequentialGroup()
+                                                .addComponent(lbl_ChatCliente)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(lbl_NombreCliente)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                        .addGroup(layout.createSequentialGroup()
+                                                                .addComponent(lbl_Username)
+                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                                .addComponent(txt_Username, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 248, Short.MAX_VALUE)
+                                                        .addComponent(txt_Mensaje))
+                                                .addGap(27, 27, 27)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(btn_Enviar)
+                                        .addComponent(btn_Logout)
+                                        .addComponent(btn_Login))
+                                .addGap(29, 29, 29))
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(13, 13, 13)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txt_Username, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbl_Username)
-                    .addComponent(btn_Login))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbl_NombreCliente)
-                    .addComponent(lbl_ChatCliente))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(41, 41, 41)
-                        .addComponent(btn_Logout))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn_Enviar)
-                    .addComponent(txt_Mensaje, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29))
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGap(13, 13, 13)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(txt_Username, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(lbl_Username)
+                                        .addComponent(btn_Login))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(lbl_NombreCliente)
+                                        .addComponent(lbl_ChatCliente))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(layout.createSequentialGroup()
+                                                .addGap(41, 41, 41)
+                                                .addComponent(btn_Logout))
+                                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(btn_Enviar)
+                                        .addComponent(txt_Mensaje, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(29, 29, 29))
         );
 
         pack();
@@ -140,7 +145,7 @@ public class Frm_ChatClient extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -162,38 +167,60 @@ public class Frm_ChatClient extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Frm_ChatClient().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+
+            new Frm_ChatClient().setVisible(true);
+
         });
     }
 
     private void btn_EnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_EnviarActionPerformed
         // TODO add your handling code here:
-        boolean isMensaje = false;
+        boolean isMensaje;
         String mensaje = txt_Mensaje.getText().trim();
-        
+
         isMensaje = isString(mensaje);
-        
+
         if (isMensaje) {
             // añadir código para enviar mensaje
             mensaje = "CHAT " + mensaje;
-            
+            clientSocket.sendMessageRoom(mensaje);
         }
-        
+
         // Despues de enviar el mensaje, se borra el texo.
         txt_Mensaje.setText("");
-        
+
     }//GEN-LAST:event_btn_EnviarActionPerformed
-    
+
     private void btn_LoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_LoginActionPerformed
         // TODO add your handling code here:
-        boolean isUsername = false;
+        boolean isUsername;
         String username = txt_Username.getText().trim();
 
         isUsername = isString(username);
+        try {
+            clientSocket.connect();
+            clientSocket.registerOnMessage(new MessageSocketClient() {
+                @Override
+                public void onMessage(String response) {
+                    txt_Chat.append(response+ "\n");
+                }
 
+                @Override
+                public void onServerClosed() {
+                    JOptionPane.showMessageDialog(null, "El servidor está cerrado!");
+                }
+
+                @Override
+                public void onLogout() {
+                    JOptionPane.showMessageDialog(null, "Te has desconectado del servidor!");
+                    clearFields();
+                }
+            });
+        } catch (Throwable err) {
+            JOptionPane.showMessageDialog(null, "No se pudo conectar al servidor");
+            return;
+        }
         if (isUsername) {
             txt_Username.setText("");
             txt_Username.setEnabled(false);
@@ -203,14 +230,29 @@ public class Frm_ChatClient extends javax.swing.JFrame {
             btn_Logout.setEnabled(true);
             txt_Mensaje.setEnabled(true);
             btn_Enviar.setEnabled(true);
-            
+            clientSocket.sendMessageRoom("LOGIN " + username);
             // añadir código para login
-            
+
         }
     }//GEN-LAST:event_btn_LoginActionPerformed
 
+    void clearFields(){
+        lbl_NombreCliente.setText("---");
+        txt_Username.setEnabled(true);
+        btn_Login.setEnabled(true);
+        txt_Chat.setEnabled(false);
+        txt_Chat.setText("");
+        btn_Logout.setEnabled(false);
+        txt_Mensaje.setEnabled(false);
+        btn_Enviar.setEnabled(false);
+    }
+
     private void btn_LogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_LogoutActionPerformed
         // TODO add your handling code here:
+        try {
+            clientSocket.disconnect();
+        } catch (Throwable t) {
+        }
         lbl_NombreCliente.setText("---");
         txt_Username.setEnabled(true);
         btn_Login.setEnabled(true);
@@ -218,13 +260,13 @@ public class Frm_ChatClient extends javax.swing.JFrame {
         btn_Logout.setEnabled(false);
         txt_Mensaje.setEnabled(false);
         btn_Enviar.setEnabled(false);
-        
+
         // añadir código para logout
-        
+
     }//GEN-LAST:event_btn_LogoutActionPerformed
 
     //region Methods
-    
+
     private boolean isString(String string) {
         boolean isUsername = false;
         if (!string.equals("")) {
@@ -232,10 +274,10 @@ public class Frm_ChatClient extends javax.swing.JFrame {
         }
         return isUsername;
     }
-    
+
     //endregion 
-    
-    
+
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_Enviar;
     private javax.swing.JButton btn_Login;

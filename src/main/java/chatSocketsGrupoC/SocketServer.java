@@ -7,7 +7,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public class SocketServer {
-    final int PORT = 8888;
+    final int PORT = 7777;
 
     private ServerSocket server;
     private ExecutorService service = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
